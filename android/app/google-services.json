@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "597400083122",
+    "firebase_url": "https://univirsty-eb962-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "univirsty-eb962",
+    "storage_bucket": "univirsty-eb962.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:597400083122:android:a5164643a902d2dbe787ab",
+        "android_client_info": {
+          "package_name": "com.example.employee"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDHQDytCrwvIsIubeVrCJrnyh1kXpgnD2Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

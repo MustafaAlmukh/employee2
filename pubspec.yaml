@@ -1,0 +1,54 @@
+name: employee
+description: A new Flutter project.
+
+# The following line prevents the package from being accidentally published to
+# pub.dev using `flutter pub publish`. This is preferred for private packages.
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=2.18.5 <3.0.0'
+
+dependencies:
+  flutter_launcher_icons: 0.12.0
+  number_to_words: ^1.0.0
+  firebase_database: ^10.4.0
+  firebase_core: ^2.24.2
+  http: ^0.13.3
+  pdf: 3.9.0
+  path_provider: 2.1.0
+  open_file: ^3.2.1
+  google_fonts_arabic: ^1.1.7
+  flutter:
+    sdk: flutter
+  flutter_localization: 0.1.13
+  flutter_html_to_pdf:
+  cupertino_icons: ^1.0.2
+  intl:
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/fonts/Cairo-VariableFont_slnt,wght.ttf
+    - assets/img.png
+    - assets/img2.png
+    - assets/cherry.jpg
+    - assets/icon/8.jpg
+
+  fonts:
+    - family: Cairo
+      fonts:
+        - asset: assets/fonts/Cairo-VariableFont_slnt,wght.ttf
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/icon/8.jpg"
