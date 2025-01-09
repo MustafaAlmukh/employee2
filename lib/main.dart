@@ -1,4 +1,5 @@
 import 'package:employee/MyHomePage.dart';
+import 'package:employee/register.dart';
 import 'package:employee/search.dart';
 import 'package:employee/show.dart';
 import 'package:firebase_core/firebase_core.dart';

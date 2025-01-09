@@ -9,7 +9,7 @@ class ShowData extends StatelessWidget {
 
   ShowData({Key? key, required this.searchKey, required this.searchField}) : super(key: key);
 
-  final DatabaseReference ref = FirebaseDatabase.instance.ref('employees2');
+  final DatabaseReference ref = FirebaseDatabase.instance.ref('employee');
 
   @override
   Widget build(BuildContext context) {

@@ -11,7 +11,7 @@ class _VerificationScreenState extends State<VerificationScreen> {
   final TextEditingController _controller = TextEditingController();
   String? _errorMessage;
   bool _loading = false;
-  final DatabaseReference ref = FirebaseDatabase.instance.ref('employees2');
+  final DatabaseReference ref = FirebaseDatabase.instance.ref('employee');
 
   void verifyNationalnumber() async {
     setState(() {

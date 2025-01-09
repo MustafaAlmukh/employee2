@@ -1,3 +1,4 @@
+import 'package:employee/register.dart';
 import 'package:employee/show.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -28,7 +29,7 @@ class _SearchScreenState extends State<SearchScreen> {
 
     // Use the already-initialized Firebase instance
     setState(() {
-      ref = FirebaseDatabase.instance.ref('employees2');
+      ref = FirebaseDatabase.instance.ref('employee');
     });
   }
 
@@ -155,7 +156,7 @@ class _SearchScreenState extends State<SearchScreen> {
         if (employeeMap != null) {
           for (var employee in employeeMap.values) {
             if (employee != null && employee is Map) {
-              if (employee['referencenumber']?.toString() == enteredReferenceNumber) {
+              if (employee['CardNo']?.toString() == enteredReferenceNumber) {
                 referenceFound = true;
                 Navigator.push(
                   context,
@@ -227,7 +228,7 @@ class _SearchScreenState extends State<SearchScreen> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              Image.asset('assets/icon/8.jpg', height: 240, width: 240),
+              Image.asset('assets/icon/img2.png', height: 240, width: 240),
               SizedBox(height: 50),
               if (_employeeName == null) ...[
                 TextField(
@@ -246,10 +247,27 @@ class _SearchScreenState extends State<SearchScreen> {
                   child: Text('بحث'),
                   style: ElevatedButton.styleFrom(
                     primary: Colors.blueGrey,
-                    onPrimary: Colors.white,
+                    padding: EdgeInsets.symmetric(horizontal: 32, vertical: 16),
+                    textStyle: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                   ),
                   onPressed: _loading ? null : search,
                 ),
+                SizedBox(height: 10),
+                ElevatedButton(
+                  child: Text('تسجيل'),
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.blueGrey,
+                    padding: EdgeInsets.symmetric(horizontal: 32, vertical: 16),
+                    textStyle: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  ),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => RegisterScreen()),
+                    );
+                  },
+                ),
+                SizedBox(height: 10),
               ] else ...[
                 Text(
                   'اسم الموظف: $_employeeName',
@@ -268,10 +286,11 @@ class _SearchScreenState extends State<SearchScreen> {
                 ),
                 SizedBox(height: 20),
                 ElevatedButton(
-                  child: Text('تحقق'),
+                  child: Text('الرقم السري'),
                   style: ElevatedButton.styleFrom(
                     primary: Colors.blueGrey,
-                    onPrimary: Colors.white,
+                    padding: EdgeInsets.symmetric(horizontal: 32, vertical: 16),
+                    textStyle: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                   ),
                   onPressed: _loading ? null : verifyReferenceNumber,
                 ),
@@ -279,7 +298,6 @@ class _SearchScreenState extends State<SearchScreen> {
               if (_loading) CircularProgressIndicator(),
               SizedBox(height: 80),
               Text('اعداد / م.مروان المخ', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-              Text('تحت اشراف /م. أحمد النعمي', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
               if (_errorMessage != null) ...[
                 SizedBox(height: 10),
                 Text(
@@ -287,6 +305,7 @@ class _SearchScreenState extends State<SearchScreen> {
                   style: TextStyle(color: Colors.red),
                 ),
               ],
+
             ],
           ),
         ),
