@@ -16,7 +16,6 @@ dependencies:
   firebase_database: ^10.4.0
   firebase_core: ^2.24.2
   http: ^0.13.3
-  pdf: 3.9.0
   path_provider: 2.1.0
   open_file: ^3.2.1
   google_fonts_arabic: ^1.1.7
@@ -25,6 +24,7 @@ dependencies:
   flutter_localization: 0.1.13
   flutter_html_to_pdf:
   cupertino_icons: ^1.0.2
+
   intl:
 
 
