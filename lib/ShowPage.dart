@@ -58,7 +58,7 @@ class ShowPage extends StatelessWidget {
                   textAlign: TextAlign.center,
                 ),
                 Text(
-                  'وزارة الداخلية \ جهاز حراسة المرافق التعليمية',
+                  'وزارة البيئة \ جهاز الشرطة البيئية',
                   style: TextStyle(
                     fontSize: 20,
                     color: Colors.black,
@@ -173,7 +173,7 @@ class ShowPage extends StatelessWidget {
                 SizedBox(height: 10,),
                 Row(
                   children: [
-                    Text('هو أحد موظفي [ حراسة المرافق التعليمية ] , ويتقاضي مرتبا شهريا بياناته موضحة كما يلي :  ', style: TextStyle(fontSize: 10)),
+                    Text('هو أحد موظفي [ جهاز الشرطة البيئية ] , ويتقاضي مرتبا شهريا بياناته موضحة كما يلي :  ', style: TextStyle(fontSize: 10)),
                   ],
                 ),
                 SizedBox(height: 10,),
@@ -345,7 +345,7 @@ class ShowPage extends StatelessWidget {
                       children: [
 
                         Text('صافي المرتب بالحروف : ................................. ', style: TextStyle(fontSize: 13, fontWeight: FontWeight.bold, color: Colors.black)),
-                        Text('استخرجت هذه الشهادة بناء علي طلبه من واقع مرتبه عن شهر 10 لسنة 2024 ', style: TextStyle(fontSize: 10),maxLines: 2,),
+                        Text('استخرجت هذه الشهادة بناء علي طلبه من واقع مرتبه عن شهر 12 لسنة 2024 ', style: TextStyle(fontSize: 10),maxLines: 2,),
                         Text('لاستعمالها في الأغلااض المسموح بها قانونا ', style: TextStyle(fontSize: 10),maxLines: 2,),
 
                       ],

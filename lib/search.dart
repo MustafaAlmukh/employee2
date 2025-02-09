@@ -59,9 +59,11 @@ class _SearchScreenState extends State<SearchScreen> {
       dynamic searchKeyForQuery = searchKeyTrimmed;
 
       // Check if search key is numeric and convert it if possible
-      if (int.tryParse(searchKeyTrimmed) != null) {
+     /* if (int.tryParse(searchKeyTrimmed) != null) {
         searchKeyForQuery = int.parse(searchKeyTrimmed);
-      }
+      }*/
+      searchKeyForQuery = searchKeyTrimmed; // لا تقم بتحويل الرقم إلى int
+
 
       final DataSnapshot snapshotByNationalnumber =
           (await ref.orderByChild('Nationalnumber').equalTo(searchKeyForQuery).once()).snapshot;
@@ -228,7 +230,23 @@ class _SearchScreenState extends State<SearchScreen> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              Image.asset('assets/icon/img2.png', height: 240, width: 240),
+    /*          Text(
+                'جهاز الشرطة البيئية',
+                style: TextStyle(
+                  fontSize: 35,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
+                  shadows: [
+                    Shadow(
+                      blurRadius: 2.0,
+                      color: Colors.black54,
+                      offset: Offset(2, 2),
+                    ),
+                  ],
+                ),
+              ),*/
+              const SizedBox(height: 20),
+              Image.asset('assets/icon/2.jpg', height: 240, width: 240),
               SizedBox(height: 50),
               if (_employeeName == null) ...[
                 TextField(

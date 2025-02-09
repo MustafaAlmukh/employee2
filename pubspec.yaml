@@ -42,6 +42,11 @@ flutter:
     - assets/img2.png
     - assets/cherry.jpg
     - assets/icon/8.jpg
+    - assets/icon/images.jpg
+    - assets/icon/j.jpg
+    - assets/icon/4.jpeg
+    - assets/icon/2.jpg
+
 
   fonts:
     - family: Cairo
