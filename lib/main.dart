@@ -14,7 +14,7 @@ Future<void> main() async {
     options: FirebaseOptions(
       apiKey: "AIzaSyAL7p7mxgluOLfqKjyljfWom3mtwPOE-Sw",
       authDomain: "univirsty-eb962.firebaseapp.com",
-      databaseURL: "https://univirsty-eb962-default-rtdb.europe-west1.firebasedatabase.app/",
+      databaseURL: "https://univirsty-eb962-default-rtdb.europe-west1.firebasedatabase.app",
       projectId: "univirsty-eb962",
       storageBucket: "univirsty-eb962.appspot.com",
       messagingSenderId: "597400083122",
