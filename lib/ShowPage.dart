@@ -11,9 +11,17 @@ class ShowPage extends StatelessWidget {
   final String accountNumber;
   final String basic;
   final String totalBonuses;
-  final String total;
+  final String Total;
   final String totalDeductions;
   final String netSalary;
+  final String Tdamn;
+  final String Box;
+  final String Boxr;
+  final String Atehad;
+  final String Dman;
+  final String Gyab;
+  final String diss;
+
 
   ShowPage({
     required this.employeeName,
@@ -26,9 +34,17 @@ class ShowPage extends StatelessWidget {
     required this.accountNumber,
     required this.basic,
     required this.totalBonuses,
-    required this.total,
+    required this.Total,
     required this.totalDeductions,
     required this.netSalary,
+    required this.Tdamn,
+    required this.Box,
+    required this.Boxr,
+    required this.Atehad,
+    required this.Dman,
+    required this.Gyab,
+    required this.diss,
+
   });
 
   @override
@@ -58,7 +74,7 @@ class ShowPage extends StatelessWidget {
                   textAlign: TextAlign.center,
                 ),
                 Text(
-                  'وزارة البيئة \ جهاز الشرطة البيئية',
+                  'وزارة الداخلية / جهاز حراسة المرافق التعليمية',
                   style: TextStyle(
                     fontSize: 20,
                     color: Colors.black,
@@ -152,7 +168,7 @@ class ShowPage extends StatelessWidget {
                         ),
                         Container(
                           padding: EdgeInsets.all(8),
-                          child: Text('$className', textAlign: TextAlign.center, style: TextStyle(fontSize: 10)),
+                          child: Text('-تعيين-', textAlign: TextAlign.center, style: TextStyle(fontSize: 10)),
                         ),
                         Container(
                           padding: EdgeInsets.all(8),
@@ -173,7 +189,7 @@ class ShowPage extends StatelessWidget {
                 SizedBox(height: 10,),
                 Row(
                   children: [
-                    Text('هو أحد موظفي [ جهاز الشرطة البيئية ] , ويتقاضي مرتبا شهريا بياناته موضحة كما يلي :  ', style: TextStyle(fontSize: 10)),
+                    Text('هو أحد موظفي [ حراسة المرافق التعليمية ] , ويتقاضي مرتبا شهريا بياناته موضحة كما يلي :  ', style: TextStyle(fontSize: 10)),
                   ],
                 ),
                 SizedBox(height: 10,),
@@ -193,7 +209,7 @@ class ShowPage extends StatelessWidget {
                           border: TableBorder.all(),
                           columnWidths: {
                             0: FixedColumnWidth(70.0),
-                            1: FixedColumnWidth(70.0),
+                            1: FixedColumnWidth(150.0),
                           },
                           children: [
                             TableRow(
@@ -217,22 +233,16 @@ class ShowPage extends StatelessWidget {
                                 ),
                                 Container(
                                   padding: EdgeInsets.all(8),
-                                  child: Text('$basic', textAlign: TextAlign.center, style: TextStyle(fontSize: 10)),
+                                  child: Text('$Total', textAlign: TextAlign.center, style: TextStyle(fontSize: 10)),
+                                height: 100,
+
                                 ),
                               ],
                             ),
+
+
+
                             TableRow(
-                              children: [
-                                Container(
-                                  padding: EdgeInsets.all(8),
-                                  child: Text(' المجموع  ', textAlign: TextAlign.center, style: TextStyle(fontSize: 10)),
-                                ),
-                                Container(
-                                  padding: EdgeInsets.all(8),
-                                  child: Text('$totalBonuses', textAlign: TextAlign.center, style: TextStyle(fontSize: 10)),
-                                ),
-                              ],
-                            ),TableRow(
                               decoration: BoxDecoration(color: Color.fromRGBO(144,238,144,170)),
                               children: [
                                 Container(
@@ -241,7 +251,7 @@ class ShowPage extends StatelessWidget {
                                 ),
                                 Container(
                                   padding: EdgeInsets.all(8),
-                                  child: Text('$total', textAlign: TextAlign.center, style: TextStyle(fontSize: 10,fontWeight: FontWeight.bold)),
+                                  child: Text('$Total', textAlign: TextAlign.center, style: TextStyle(fontSize: 10,fontWeight: FontWeight.bold)),
                                 ),
                               ],
                             ),
@@ -262,7 +272,7 @@ class ShowPage extends StatelessWidget {
                           border: TableBorder.all(),
                           columnWidths: {
                             0: FixedColumnWidth(70.0),
-                            1: FixedColumnWidth(70.0),
+                            1: FixedColumnWidth(150.0),
                           },
                           children: [
                             TableRow(
@@ -281,32 +291,21 @@ class ShowPage extends StatelessWidget {
                               children: [
                                 Container(
                                   padding: EdgeInsets.all(8),
-                                  child: Text('تضامن', textAlign: TextAlign.center, style: TextStyle(fontSize: 10)),
+                                  child: Text('الخصميات', textAlign: TextAlign.center, style: TextStyle(fontSize: 10)),
                                 ),
                                 Container(
                                   padding: EdgeInsets.all(8),
-                                  child: Text('', textAlign: TextAlign.center, style: TextStyle(fontSize: 10)),
+                                  child: Text('$diss', textAlign: TextAlign.center, style: TextStyle(fontSize: 10)),
                                 ),
                               ],
                             ),
-                            TableRow(
-                              children: [
-                                Container(
-                                  padding: EdgeInsets.all(8),
-                                  child: Text('جهاد', textAlign: TextAlign.center, style: TextStyle(fontSize: 10)),
-                                ),
-                                Container(
-                                  padding: EdgeInsets.all(8),
-                                  child: Text('', textAlign: TextAlign.center, style: TextStyle(fontSize: 10)),
-                                ),
-                              ],
-                            ),
+
                             TableRow(
                               decoration: BoxDecoration(color: Color.fromRGBO(240,128,128,170)),
                               children: [
                                 Container(
                                   padding: EdgeInsets.all(8),
-                                  child: Text('الخصومات', textAlign: TextAlign.center, style: TextStyle(fontSize: 10,fontWeight: FontWeight.bold)),
+                                  child: Text('الاجمالي', textAlign: TextAlign.center, style: TextStyle(fontSize: 10,fontWeight: FontWeight.bold)),
                                 ),
                                 Container(
                                   padding: EdgeInsets.all(8),
@@ -345,7 +344,7 @@ class ShowPage extends StatelessWidget {
                       children: [
 
                         Text('صافي المرتب بالحروف : ................................. ', style: TextStyle(fontSize: 13, fontWeight: FontWeight.bold, color: Colors.black)),
-                        Text('استخرجت هذه الشهادة بناء علي طلبه من واقع مرتبه عن شهر 12 لسنة 2024 ', style: TextStyle(fontSize: 10),maxLines: 2,),
+                        Text('استخرجت هذه الشهادة بناء علي طلبه من واقع مرتبه عن شهر 1 لسنة 2025 ', style: TextStyle(fontSize: 10),maxLines: 2,),
                         Text('لاستعمالها في الأغلااض المسموح بها قانونا ', style: TextStyle(fontSize: 10),maxLines: 2,),
 
                       ],

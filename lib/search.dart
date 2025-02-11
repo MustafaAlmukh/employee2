@@ -14,27 +14,18 @@ class _SearchScreenState extends State<SearchScreen> {
   final TextEditingController _referenceController = TextEditingController();
   String _searchKey = '';
   bool _loading = false;
-  bool _referenceStep = false; // Step flag to show reference field
-  String? _employeeName; // Store the employee name for display
+  bool _referenceStep = false; // لتحديد ظهور حقل التحقق من الرقم السري
+  String? _employeeName; // تخزين اسم الموظف للعرض
   String? _errorMessage;
   late DatabaseReference ref;
 
   @override
-  @override
-  @override
-  @override
   void initState() {
     super.initState();
     _clearFields();
-
-    // Use the already-initialized Firebase instance
-    setState(() {
-      ref = FirebaseDatabase.instance.ref('employee');
-    });
+    // استخدام Firebase المُهيأ مسبقاً
+    ref = FirebaseDatabase.instance.ref('employee');
   }
-
-
-
 
   void _clearFields() {
     _controller.clear();
@@ -57,13 +48,8 @@ class _SearchScreenState extends State<SearchScreen> {
     try {
       final searchKeyTrimmed = _controller.text.trim();
       dynamic searchKeyForQuery = searchKeyTrimmed;
-
-      // Check if search key is numeric and convert it if possible
-     /* if (int.tryParse(searchKeyTrimmed) != null) {
-        searchKeyForQuery = int.parse(searchKeyTrimmed);
-      }*/
-      searchKeyForQuery = searchKeyTrimmed; // لا تقم بتحويل الرقم إلى int
-
+      // لا نقوم بتحويل الرقم إلى int كما هو الحال في قاعدة البيانات
+      searchKeyForQuery = searchKeyTrimmed;
 
       final DataSnapshot snapshotByNationalnumber =
           (await ref.orderByChild('Nationalnumber').equalTo(searchKeyForQuery).once()).snapshot;
@@ -129,7 +115,6 @@ class _SearchScreenState extends State<SearchScreen> {
     }
   }
 
-
   void verifyReferenceNumber() async {
     setState(() {
       _loading = true;
@@ -170,7 +155,7 @@ class _SearchScreenState extends State<SearchScreen> {
                   ),
                 ).then((_) {
                   setState(() {
-                    _clearFields(); // Reset fields when returning from ShowData
+                    _clearFields(); // إعادة تعيين الحقول عند العودة من شاشة العرض
                   });
                 });
                 break;
@@ -206,12 +191,18 @@ class _SearchScreenState extends State<SearchScreen> {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: Text('خطأ'),
-        content: Text(message),
+        backgroundColor: Colors.white,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+        title: Text('خطأ',
+            style: TextStyle(
+              color: Colors.red,
+              fontWeight: FontWeight.bold,
+            )),
+        content: Text(message, style: TextStyle(color: Colors.black)),
         actions: [
           TextButton(
             onPressed: () => Navigator.of(context).pop(),
-            child: Text('حسناً'),
+            child: Text('حسناً', style: TextStyle(color: Colors.blueGrey)),
           ),
         ],
       ),
@@ -222,109 +213,189 @@ class _SearchScreenState extends State<SearchScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Center(child: Text("عرض بيانات الموظف")),
+        title:
+        Text("عرض بيانات الموظف", style: TextStyle(fontWeight: FontWeight.bold)),
+        centerTitle: true,
         backgroundColor: Colors.blueGrey,
+        elevation: 4,
       ),
-      body: Padding(
-        padding: EdgeInsets.all(40),
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-    /*          Text(
-                'جهاز الشرطة البيئية',
-                style: TextStyle(
-                  fontSize: 35,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black,
-                  shadows: [
-                    Shadow(
-                      blurRadius: 2.0,
-                      color: Colors.black54,
-                      offset: Offset(2, 2),
-                    ),
-                  ],
-                ),
-              ),*/
-              const SizedBox(height: 20),
-              Image.asset('assets/icon/2.jpg', height: 240, width: 240),
-              SizedBox(height: 50),
-              if (_employeeName == null) ...[
-                TextField(
-                  controller: _controller,
-                  decoration: InputDecoration(
-                    labelText: 'ادخل الرقم الوطني أو الاسم',
-                    suffixIcon: Icon(Icons.search),
-                    border: OutlineInputBorder(),
-                    focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.blueGrey),
-                    ),
-                  ),
-                ),
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [Colors.white, Colors.blueGrey.shade50],
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+          ),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(30.0),
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
                 SizedBox(height: 20),
-                ElevatedButton(
-                  child: Text('بحث'),
-                  style: ElevatedButton.styleFrom(
-                    primary: Colors.blueGrey,
-                    padding: EdgeInsets.symmetric(horizontal: 32, vertical: 16),
-                    textStyle: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                Card(
+                  elevation: 5,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(16)),
+                  child: Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Image.asset('assets/icon/img2.png',
+                        height: 200, width: 200),
                   ),
-                  onPressed: _loading ? null : search,
                 ),
-                SizedBox(height: 10),
-                ElevatedButton(
-                  child: Text('تسجيل'),
-                  style: ElevatedButton.styleFrom(
-                    primary: Colors.blueGrey,
-                    padding: EdgeInsets.symmetric(horizontal: 32, vertical: 16),
-                    textStyle: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                  ),
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => RegisterScreen()),
-                    );
-                  },
-                ),
-                SizedBox(height: 10),
-              ] else ...[
-                Text(
-                  'اسم الموظف: $_employeeName',
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                ),
-                SizedBox(height: 20),
-                TextField(
-                  controller: _referenceController,
-                  decoration: InputDecoration(
-                    labelText: 'أدخل كلمة المرور',
-                    border: OutlineInputBorder(),
-                    focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.blueGrey),
+                SizedBox(height: 30),
+                if (_employeeName == null) ...[
+                  Card(
+                    elevation: 4,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12)),
+                    child: TextField(
+                      controller: _controller,
+                      decoration: InputDecoration(
+                        labelText: 'ادخل الرقم الوطني أو الاسم',
+                        suffixIcon: Icon(Icons.search, color: Colors.blueGrey),
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(12)),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.blueGrey),
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                        contentPadding: EdgeInsets.symmetric(
+                            horizontal: 16, vertical: 14),
+                      ),
                     ),
                   ),
-                ),
-                SizedBox(height: 20),
-                ElevatedButton(
-                  child: Text('الرقم السري'),
-                  style: ElevatedButton.styleFrom(
-                    primary: Colors.blueGrey,
-                    padding: EdgeInsets.symmetric(horizontal: 32, vertical: 16),
-                    textStyle: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  SizedBox(height: 20),
+                  ElevatedButton(
+                    child: Text('بحث'),
+                    style: ElevatedButton.styleFrom(
+                      primary: Colors.blueGrey,
+                      onPrimary: Colors.white,
+                      padding:
+                      EdgeInsets.symmetric(horizontal: 32, vertical: 16),
+                      textStyle: TextStyle(
+                          fontSize: 18, fontWeight: FontWeight.bold),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12)),
+                    ),
+                    onPressed: _loading ? null : search,
                   ),
-                  onPressed: _loading ? null : verifyReferenceNumber,
-                ),
+                  SizedBox(height: 10),
+                  TextButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => RegisterScreen()),
+                      ).then((_) {
+                        setState(() {
+                          _clearFields();
+                        });
+                      });
+                    },
+                    child: Text(
+                      "تعيين كلمة مرور",
+                      style: TextStyle(
+                        decoration: TextDecoration.underline,
+                        fontSize: 16,
+                        color: Colors.blueGrey,
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 10),
+                ] else ...[
+                  Card(
+                    elevation: 4,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12)),
+                    child: Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: Text(
+                        'اسم الموظف: $_employeeName',
+                        style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.blueGrey),
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 20),
+                  Card(
+                    elevation: 4,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12)),
+                    child: TextField(
+                      controller: _referenceController,
+                      decoration: InputDecoration(
+                        labelText: 'أدخل كلمة المرور',
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(12)),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.blueGrey),
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                        contentPadding: EdgeInsets.symmetric(
+                            horizontal: 16, vertical: 14),
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 20),
+                  ElevatedButton(
+                    child: Text('الرقم السري'),
+                    style: ElevatedButton.styleFrom(
+                      primary: Colors.blueGrey,
+                      onPrimary: Colors.white,
+                      padding:
+                      EdgeInsets.symmetric(horizontal: 32, vertical: 16),
+                      textStyle: TextStyle(
+                          fontSize: 18, fontWeight: FontWeight.bold),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12)),
+                    ),
+                    onPressed: _loading ? null : verifyReferenceNumber,
+                  ),
+                  SizedBox(height: 10),
+                  // إضافة رابط نصي لإعادة التوجيه إلى شاشة التسجيل في حال عدم توفر كلمة مرور صحيحة
+                  TextButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => RegisterScreen()),
+                      ).then((_) {
+                        setState(() {
+                          _clearFields();
+                        });
+                      });
+                    },
+                    child: Text(
+                      "ليس لديك كلمة مرور؟ اضغط هنا",
+                      style: TextStyle(
+                        decoration: TextDecoration.underline,
+                        fontSize: 16,
+                        color: Colors.blueGrey,
+                      ),
+                    ),
+                  ),
+                ],
+                if (_loading) ...[
+                  SizedBox(height: 20),
+                  CircularProgressIndicator(),
+                ],
+                SizedBox(height: 40),
+                Text('اعداد / م.مروان المخ',
+                    style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.blueGrey)),
+                if (_errorMessage != null) ...[
+                  SizedBox(height: 10),
+                  Text(
+                    _errorMessage!,
+                    style: TextStyle(color: Colors.red, fontSize: 16),
+                    textAlign: TextAlign.center,
+                  ),
+                ],
               ],
-              if (_loading) CircularProgressIndicator(),
-              SizedBox(height: 80),
-              Text('اعداد / م.مروان المخ', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-              if (_errorMessage != null) ...[
-                SizedBox(height: 10),
-                Text(
-                  _errorMessage!,
-                  style: TextStyle(color: Colors.red),
-                ),
-              ],
-
-            ],
+            ),
           ),
         ),
       ),

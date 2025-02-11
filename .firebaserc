@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "univirsty-eb962"
-  }
+    "default": "univirsty-eb962",
+    "test": "herasa10"
+  },
+  "targets": {},
+  "etags": {}
 }
