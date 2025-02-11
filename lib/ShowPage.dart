@@ -356,14 +356,14 @@ class ShowPage extends StatelessWidget {
                 Text('كما نتعهد بعدم تحويل حسابه الي اي مصرف اخر الا بعد موافقتكم', style: TextStyle(fontSize: 10),maxLines: 2,),
                 SizedBox(height: 20),
 
-                Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                /*Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text('وحدة المرتبات', style: TextStyle(fontSize: 13,fontWeight: FontWeight.bold),maxLines: 2,),
                     Text('المراجعة', style: TextStyle(fontSize: 13,fontWeight: FontWeight.bold),maxLines: 2,),
                     Text('الاعتماد', style: TextStyle(fontSize: 13,fontWeight: FontWeight.bold),maxLines: 2,),
 
 
-                  ],)
+                  ],)*/
               ],
             ),
           ),
