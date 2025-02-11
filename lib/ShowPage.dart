@@ -209,7 +209,7 @@ class ShowPage extends StatelessWidget {
                           border: TableBorder.all(),
                           columnWidths: {
                             0: FixedColumnWidth(70.0),
-                            1: FixedColumnWidth(150.0),
+                            1: FixedColumnWidth(130.0),
                           },
                           children: [
                             TableRow(
@@ -234,7 +234,7 @@ class ShowPage extends StatelessWidget {
                                 Container(
                                   padding: EdgeInsets.all(8),
                                   child: Text('$Total', textAlign: TextAlign.center, style: TextStyle(fontSize: 10)),
-                                height: 100,
+                                height: 80,
 
                                 ),
                               ],
@@ -272,7 +272,7 @@ class ShowPage extends StatelessWidget {
                           border: TableBorder.all(),
                           columnWidths: {
                             0: FixedColumnWidth(70.0),
-                            1: FixedColumnWidth(150.0),
+                            1: FixedColumnWidth(130.0),
                           },
                           children: [
                             TableRow(
