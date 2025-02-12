@@ -239,7 +239,7 @@ class _SearchScreenState extends State<SearchScreen> {
                       borderRadius: BorderRadius.circular(16)),
                   child: Padding(
                     padding: const EdgeInsets.all(16.0),
-                    child: Image.asset('assets/icon/2.jpg',
+                    child: Image.asset('assets/icon/img2.png',
                         height: 200, width: 200),
                   ),
                 ),
@@ -267,7 +267,7 @@ class _SearchScreenState extends State<SearchScreen> {
                   ),
                   SizedBox(height: 20),
                   ElevatedButton(
-                    child: Text('بحث'),
+                    child: Text('تسجيل الدخول'),
                     style: ElevatedButton.styleFrom(
                       primary: Colors.blueGrey,
                       onPrimary: Colors.white,
@@ -381,7 +381,13 @@ class _SearchScreenState extends State<SearchScreen> {
                   CircularProgressIndicator(),
                 ],
                 SizedBox(height: 40),
-                Text('اعداد / م.مروان المخ',
+                Text('اعداد / م.مروان احمد خليل المخ',
+                    style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.blueGrey)),
+                SizedBox(height: 10),
+                Text('اشراف /عقيد عبدالحفيظ احمد الطياري',
                     style: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,

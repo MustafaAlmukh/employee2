@@ -12,13 +12,14 @@ Future<void> main() async {
   // Initialize Firebase only once
   await Firebase.initializeApp(
     options: FirebaseOptions(
-        apiKey: "AIzaSyBaBPbR3zVeBzL20XyhRj0GJSskDC-ix3o",
-        authDomain: "herasa10.firebaseapp.com",
-        databaseURL: "https://herasa10-default-rtdb.europe-west1.firebasedatabase.app",
-        projectId: "herasa10",
-        storageBucket: "herasa10.firebasestorage.app",
-        messagingSenderId: "316219989410",
-        appId: "1:316219989410:web:fe81b8574f9584f70d26fb"
+      apiKey: "AIzaSyAL7p7mxgluOLfqKjyljfWom3mtwPOE-Sw",
+      authDomain: "univirsty-eb962.firebaseapp.com",
+      databaseURL: "https://univirsty-eb962-default-rtdb.europe-west1.firebasedatabase.app",
+      projectId: "univirsty-eb962",
+      storageBucket: "univirsty-eb962.appspot.com",
+      messagingSenderId: "597400083122",
+      appId: "1:597400083122:web:637758fefd98eb84e787ab",
+      measurementId: "G-VD3GEMZR92",
     ),
   );
 
