@@ -170,16 +170,9 @@ class EmployeeCard extends StatelessWidget {
     final accountNumber = snapshot.child('accountnumber').value?.toString() ?? 'N/A';
     final basic = snapshot.child('Basic').value?.toString() ?? 'N/A';
     final totalBonuses = snapshot.child('Totalbonuses').value?.toString() ?? 'N/A';
-    final Total = snapshot.child('Total').value?.toString() ?? 'N/A';
+    final total = snapshot.child('Total').value?.toString() ?? 'N/A';
     final totalDeductions = snapshot.child('Totaldeductions').value?.toString() ?? 'N/A';
     final netSalary = snapshot.child('Netsalary').value?.toString() ?? 'N/A';
-    final Tdamn = snapshot.child('Tdamn').value?.toString() ?? '0';
-    final Box = snapshot.child('Box').value?.toString() ?? '0';
-    final Boxr = snapshot.child('Boxr').value?.toString() ?? '0';
-    final Atehad = snapshot.child('Atehad').value?.toString() ?? '0';
-    final Gyab = snapshot.child('Gyab').value?.toString() ?? '0';
-    final Dman = snapshot.child('Dman').value?.toString() ?? '0';
-    final diss = snapshot.child('diss').value?.toString() ?? '0';
 
     showDialog(
       context: context,
@@ -209,7 +202,7 @@ class EmployeeCard extends StatelessWidget {
                 _buildDetailRow('رقم الحساب:', accountNumber),
                 _buildDetailRow('الأساسي:', basic),
                 _buildDetailRow('مجموع العلاوات:', totalBonuses),
-                _buildDetailRow('الاجمالي:', Total),
+                _buildDetailRow('الاجمالي:', total),
                 _buildDetailRow('مجموع الخصميات:', totalDeductions),
                 _buildDetailRow('صافي المرتب:', netSalary),
               ],
@@ -238,17 +231,9 @@ class EmployeeCard extends StatelessWidget {
                         accountNumber: accountNumber,
                         basic: basic,
                         totalBonuses: totalBonuses,
-                        Total: Total,
+                        total: total,
                         totalDeductions: totalDeductions,
                         netSalary: netSalary,
-                        Tdamn: Tdamn,
-                        Box: Box,
-                          Boxr: Boxr,
-                        Atehad: Atehad,
-                        Gyab:Gyab,
-                        Dman: Dman,
-                        diss: diss,
-
                       ),
                     ),
                   );

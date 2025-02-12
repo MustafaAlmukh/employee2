@@ -239,7 +239,7 @@ class _SearchScreenState extends State<SearchScreen> {
                       borderRadius: BorderRadius.circular(16)),
                   child: Padding(
                     padding: const EdgeInsets.all(16.0),
-                    child: Image.asset('assets/icon/img2.png',
+                    child: Image.asset('assets/icon/2.jpg',
                         height: 200, width: 200),
                   ),
                 ),
