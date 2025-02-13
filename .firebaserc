@@ -3,7 +3,11 @@
     "default": "univirsty-eb962",
     "test": "herasa10",
     "tst": "univirsty-eb962",
-    "ys": "herasa10"
+    "ys": "herasa10",
+    "tst 2": "univirsty-eb962",
+    "tst4": "univirsty-eb962",
+    "y": "univirsty-eb962",
+    "sk": "univirsty-eb962"
   },
   "targets": {},
   "etags": {}

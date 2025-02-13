@@ -119,7 +119,6 @@ class EmployeeCard extends StatelessWidget {
                 _buildDetailRow('الرقم الوطني:', nationalNumber),
                 _buildDetailRow('الرقم المرجعي:', referenceNumber),
                 _buildDetailRow('الدرجة:', className),
-                _buildDetailRow('العلاوة:', bonus),
                 _buildDetailRow('المصرف:', bank),
                 _buildDetailRow('رقم الحساب:', accountNumber),
                 _buildDetailRow('الاجمالي:', Total),

@@ -119,7 +119,7 @@ class ShowPage extends StatelessWidget {
                           padding: EdgeInsetsDirectional.fromSTEB(145, 0, 0, 0),
                           child: Text('بعد التحية,', style: TextStyle(fontSize: 13, fontWeight: FontWeight.bold)),
                         ),
-                        Text('يفيدكم القسم المالي بمصرف $bank بأن السيد / ', style: TextStyle(fontSize: 10)),
+                        Text('يفيدكم القسم المالي بجهاز حراسة المرافق التعليمية بأن السيد / ', style: TextStyle(fontSize: 10)),
                       ],
                     ),
                     Column(
