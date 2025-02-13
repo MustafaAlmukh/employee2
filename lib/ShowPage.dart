@@ -189,7 +189,7 @@ class ShowPage extends StatelessWidget {
                 SizedBox(height: 10,),
                 Row(
                   children: [
-                    Text('هو أحد موظفي [ جهاز حراسة المرافق التعليمية ] , ويتقاضي مرتبا شهريا بياناته موضحة كما يلي :  ', style: TextStyle(fontSize: 10)),
+                    Text('هو أحد موظفي جهاز حراسة المرافق التعليمية , ويتقاضي مرتبا شهريا بياناته موضحة كما يلي :  ', style: TextStyle(fontSize: 10)),
                   ],
                 ),
                 SizedBox(height: 10,),
@@ -229,7 +229,7 @@ class ShowPage extends StatelessWidget {
                               children: [
                                 Container(
                                   padding: EdgeInsets.all(8),
-                                  child: Text('الأساسي', textAlign: TextAlign.center, style: TextStyle(fontSize: 10)),
+                                  child: Text('اجمالي المرتب', textAlign: TextAlign.center, style: TextStyle(fontSize: 10)),
                                 ),
                                 Container(
                                   padding: EdgeInsets.all(8),
