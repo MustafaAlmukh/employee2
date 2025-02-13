@@ -189,7 +189,7 @@ class ShowPage extends StatelessWidget {
                 SizedBox(height: 10,),
                 Row(
                   children: [
-                    Text('هو أحد موظفي [ حراسة المرافق التعليمية ] , ويتقاضي مرتبا شهريا بياناته موضحة كما يلي :  ', style: TextStyle(fontSize: 10)),
+                    Text('هو أحد موظفي [ جهاز حراسة المرافق التعليمية ] , ويتقاضي مرتبا شهريا بياناته موضحة كما يلي :  ', style: TextStyle(fontSize: 10)),
                   ],
                 ),
                 SizedBox(height: 10,),
@@ -293,10 +293,18 @@ class ShowPage extends StatelessWidget {
                                   padding: EdgeInsets.all(8),
                                   child: Text('الخصميات', textAlign: TextAlign.center, style: TextStyle(fontSize: 10)),
                                 ),
-                                Container(
-                                  padding: EdgeInsets.all(8),
-                                  child: Text('$diss', textAlign: TextAlign.center, style: TextStyle(fontSize: 10)),
+                                Directionality(
+                                  textDirection: TextDirection.rtl,
+                                  child: Container(
+                                    padding: EdgeInsets.all(8),
+                                    child: Text(
+                                      '$diss',
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(fontSize: 10),
+                                    ),
+                                  ),
                                 ),
+
                               ],
                             ),
 
@@ -307,10 +315,18 @@ class ShowPage extends StatelessWidget {
                                   padding: EdgeInsets.all(8),
                                   child: Text('الاجمالي', textAlign: TextAlign.center, style: TextStyle(fontSize: 10,fontWeight: FontWeight.bold)),
                                 ),
-                                Container(
-                                  padding: EdgeInsets.all(8),
-                                  child: Text('$totalDeductions', textAlign: TextAlign.center, style: TextStyle(fontSize: 10,fontWeight: FontWeight.bold)),
+                                Directionality(
+                                  textDirection: TextDirection.rtl,
+                                  child: Container(
+                                    padding: EdgeInsets.all(8),
+                                    child: Text(
+                                      '$className',
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(fontSize: 10),
+                                    ),
+                                  ),
                                 ),
+
                               ],
                             ),
                           ],
@@ -342,8 +358,8 @@ class ShowPage extends StatelessWidget {
                   children: [
                     Column(crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-
-                        Text('صافي المرتب بالحروف : ................................. ', style: TextStyle(fontSize: 13, fontWeight: FontWeight.bold, color: Colors.black)),
+                        SizedBox(height: 5),
+                        /*Text('صافي المرتب بالحروف : ................................. ', style: TextStyle(fontSize: 13, fontWeight: FontWeight.bold, color: Colors.black)),*/
                         Text('استخرجت هذه الشهادة بناء علي طلبه من واقع مرتبه عن شهر 1 لسنة 2025 ', style: TextStyle(fontSize: 10),maxLines: 2,),
                         Text('لاستعمالها في الأغلااض المسموح بها قانونا ', style: TextStyle(fontSize: 10),maxLines: 2,),
 
