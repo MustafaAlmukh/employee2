@@ -320,7 +320,7 @@ class ShowPage extends StatelessWidget {
                                   child: Container(
                                     padding: EdgeInsets.all(8),
                                     child: Text(
-                                      '$className',
+                                      '$totalDeductions',
                                       textAlign: TextAlign.center,
                                       style: TextStyle(fontSize: 10),
                                     ),
